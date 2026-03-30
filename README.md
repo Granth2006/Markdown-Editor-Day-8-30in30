@@ -13,7 +13,7 @@
 
 <br/>
 
-[![🚀 Live Demo](https://img.shields.io/badge/🚀%20Live%20Demo-Marky-2eaadc?style=for-the-badge)](https://marky-markdown-editor.vercel.app)
+[![🚀 Live Demo](https://img.shields.io/badge/🚀%20Live%20Demo-Marky-2eaadc?style=for-the-badge)](https://markdown-editor-30in30.vercel.app/)
 &nbsp;&nbsp;
 [![GitHub](https://img.shields.io/badge/⭐%20GitHub-Granth2006-24292e?style=for-the-badge&logo=github)](https://github.com/Granth2006)
 
@@ -76,7 +76,7 @@
 | 🏆 **Challenge** | 30 Web Apps in 30 Days |
 | 📅 **Day** | Day 8 / 30 |
 | 👤 **Author** | Granth Kumar |
-| 🌐 **Live URL** | [https://marky-markdown-editor.vercel.app](https://marky-markdown-editor.vercel.app) |
+| 🌐 **Live URL** | [https://markdown-editor-30in30.vercel.app/](https://markdown-editor-30in30.vercel.app/) |
 | 🛠️ **Build** | No build step — pure HTML / CSS / JS |
 | 📄 **License** | MIT |
 
@@ -100,6 +100,6 @@
 
 Built by **[Granth Kumar](https://github.com/Granth2006)** &nbsp;·&nbsp; Part of the **30 Web Apps in 30 Days** challenge
 
-[![Live Demo](https://img.shields.io/badge/🚀%20Open%20Live%20Demo-2eaadc?style=for-the-badge)](https://marky-markdown-editor.vercel.app)
+[![Live Demo](https://img.shields.io/badge/🚀%20Open%20Live%20Demo-2eaadc?style=for-the-badge)](https://markdown-editor-30in30.vercel.app/)
 
 </div>
