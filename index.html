@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marky - Modern Markdown Editor</title>
+    
+    <!-- CDNs -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" id="hljs-theme">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-minimal mode-light view-split">
+    <div class="app-container">
+        <header class="navbar">
+            <div class="brand">
+                <i class="fa-brands fa-markdown"></i> 
+                <span>Marky</span>
+            </div>
+            
+            <div class="toolbar">
+                <button class="tool-btn" data-action="bold" title="Bold (Ctrl+B)"><i class="fa-solid fa-bold"></i></button>
+                <button class="tool-btn" data-action="italic" title="Italic (Ctrl+I)"><i class="fa-solid fa-italic"></i></button>
+                <button class="tool-btn" data-action="heading" title="Heading"><i class="fa-solid fa-heading"></i></button>
+                <button class="tool-btn" data-action="link" title="Link"><i class="fa-solid fa-link"></i></button>
+                <button class="tool-btn" data-action="code" title="Code"><i class="fa-solid fa-code"></i></button>
+                <button class="tool-btn" data-action="list" title="Bulleted List"><i class="fa-solid fa-list-ul"></i></button>
+            </div>
+            
+            <div class="actions">
+                <div class="dropdown">
+                    <button class="action-btn dropbtn"><i class="fa-solid fa-file-import"></i> File</button>
+                    <div class="dropdown-content">
+                        <a href="#" id="import-btn">Import .md</a>
+                        <input type="file" id="file-input" accept=".md" style="display: none;">
+                        <a href="#" id="download-md-btn">Save as .md</a>
+                    </div>
+                </div>
+                
+                <div class="dropdown">
+                    <button class="action-btn dropbtn"><i class="fa-solid fa-file-export"></i> Export</button>
+                    <div class="dropdown-content">
+                        <a href="#" id="export-html-btn">Export HTML</a>
+                        <a href="#" id="export-pdf-btn">Export PDF</a>
+                    </div>
+                </div>
+                
+                <button class="action-btn" id="copy-html-btn" title="Copy HTML"><i class="fa-solid fa-copy"></i></button>
+                
+                <div class="controls-group">
+                    <select id="theme-select" class="dropdown-select">
+                        <option value="minimal">Minimal Theme</option>
+                        <option value="github" disabled>GitHub Theme (coming soon)</option>
+                    </select>
+                    <button class="icon-btn" id="theme-toggle" title="Toggle Dark/Light Mode"><i class="fa-solid fa-moon"></i></button>
+                </div>
+                
+                <div class="view-controls">
+                    <button class="view-btn active" data-view="split" title="Split View"><i class="fa-solid fa-columns"></i></button>
+                    <button class="view-btn" data-view="editor" title="Editor Only"><i class="fa-solid fa-pen-nib"></i></button>
+                    <button class="view-btn" data-view="preview" title="Preview Only"><i class="fa-solid fa-eye"></i></button>
+                    <button class="view-btn" id="fullscreen-btn" title="Fullscreen"><i class="fa-solid fa-expand"></i></button>
+                </div>
+            </div>
+        </header>
+        
+        <main class="workspace" id="workspace">
+            <div class="editor-pane" id="editor-pane">
+                <textarea id="editor" placeholder="Start writing something awesome..."></textarea>
+            </div>
+            
+            <div class="resizer" id="resizer"></div>
+            
+            <div class="preview-pane" id="preview-pane">
+                <div class="preview-content markdown-body" id="preview"></div>
+                <div class="toc-container" id="toc-container">
+                    <div class="toc-header">Table of Contents</div>
+                    <div id="toc" class="toc"></div>
+                </div>
+            </div>
+        </main>
+        
+        <footer class="statusbar">
+            <div class="stats">
+                <span id="word-count">0 words</span>
+                <span id="char-count">0 chars</span>
+                <span id="read-time">0 min read</span>
+            </div>
+            <div class="status-msg">
+                <span id="save-status"><i class="fa-solid fa-check-circle"></i> Saved to Local Storage</span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="toast">Action completed successfully</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
